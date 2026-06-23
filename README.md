@@ -80,6 +80,22 @@ A stock with large price swings is considered riskier than a stock with steadier
 - Portfolio return
 - Portfolio risk
 
+## Running the Analysis
+
+Clean the raw Yahoo Finance export:
+
+```bash
+python src/clean_data.py
+```
+
+Run the exploratory analysis:
+
+```bash
+python src/exploratory_analysis.py
+```
+
+The EDA script writes summary outputs to the `reports` folder. If Matplotlib is installed, it also saves charts in `reports/figures`.
+
 ## Example Insight
 
 An example conclusion might be:
@@ -88,6 +104,13 @@ An example conclusion might be:
 
 ## Project Status
 
-Current stage: project setup and planning.
+Current stage: exploratory data analysis.
 
-Next step: build the first data collection script and download historical prices for the initial stock list.
+Completed so far:
+
+- Project setup and planning.
+- Historical market data collection.
+- Data cleaning into a tidy stock price table.
+- First exploratory risk and return summary.
+
+Next step: generate visualisations and write the first observations from the EDA outputs.
