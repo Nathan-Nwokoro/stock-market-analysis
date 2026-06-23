@@ -46,11 +46,39 @@ Initial findings:
 
 Key metric explanations:
 
-- Volatility measures how much an asset's returns move up and down over time. Higher volatility means the price changes are less steady and the investment is usually considered riskier.
-- Sharpe ratio compares return against risk. A higher Sharpe ratio means the asset produced more return for each unit of volatility. In this project, it helps compare whether a stock's return was worth the amount of risk taken.
-- Maximum drawdown measures the biggest fall from a previous high point to a later low point. For example, if a stock rose to GBP 100 and then dropped to GBP 60 before recovering, the maximum drawdown would be -40%. This helps show how painful the worst loss period would have been for an investor.
+- Volatility measures how much an asset's returns move up and down over time. Higher volatility means the price changes are less steady and the investment is usually considered riskier. In this project, volatility was calculated by taking the standard deviation of daily returns, then annualizing it by multiplying by the square root of 252, because there are roughly 252 trading days in a year.
+
+```text
+annualized_volatility = standard_deviation(daily_returns) * sqrt(252)
+```
+
+- Sharpe ratio compares return against risk. A higher Sharpe ratio means the asset produced more return for each unit of volatility. In this project, it helps compare whether a stock's return was worth the amount of risk taken. The simple version used here divides annualized return by annualized volatility. A more advanced version can subtract a risk-free rate first, but this first EDA version uses zero as the risk-free rate to keep the calculation simple.
+
+```text
+sharpe_ratio = annualized_return / annualized_volatility
+```
+
+- Maximum drawdown measures the biggest fall from a previous high point to a later low point. For example, if a stock rose to GBP 100 and then dropped to GBP 60 before recovering, the maximum drawdown would be -40%. This helps show how painful the worst loss period would have been for an investor. In this project, the script keeps track of the highest closing price seen so far, then calculates how far below that peak each later price falls. The worst fall is the maximum drawdown.
+
+```text
+drawdown = current_close / highest_close_so_far - 1
+maximum_drawdown = lowest_drawdown
+```
+
+- Correlation matrix compares how similarly the assets move based on their daily returns. A correlation close to 1 means two assets often move in the same direction. A correlation close to 0 means there is no strong relationship. A negative correlation means they often move in opposite directions. In this project, the script puts daily returns into a wide table, with dates as rows and tickers as columns, then calculates the correlation between each pair of tickers.
+
+```text
+correlation = correlation_between(asset_a_daily_returns, asset_b_daily_returns)
+```
 
 Next planned step:
 
 - Install or enable Matplotlib, then generate price growth, return distribution, and correlation heatmap charts.
 - Begin turning the EDA summary into written observations for the final report.
+
+End-of-day update:
+
+- Completed the first exploratory analysis stage.
+- Reviewed what the main risk metrics mean and how they are calculated.
+- Discussed how to interpret the daily returns boxplot.
+- Identified that median daily returns are close to zero because typical daily price moves are small, even when long-term total returns are large.
