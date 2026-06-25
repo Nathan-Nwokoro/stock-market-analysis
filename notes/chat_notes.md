@@ -82,3 +82,33 @@ End-of-day update:
 - Reviewed what the main risk metrics mean and how they are calculated.
 - Discussed how to interpret the daily returns boxplot.
 - Identified that median daily returns are close to zero because typical daily price moves are small, even when long-term total returns are large.
+
+## 25 June 2026
+
+Continued exploratory analysis and started turning the results into written findings.
+
+Work completed today:
+
+- Confirmed that the three EDA charts had been generated successfully in `reports/figures`:
+  - `daily_return_boxplot.png`
+  - `normalized_price_growth.png`
+  - `return_correlation_heatmap.png`
+- Reviewed the next step for the project: interpreting the charts and writing short EDA observations.
+- Created `reports/eda_findings_report.md` to answer the main EDA questions:
+  - What grew the most?
+  - What was the riskiest?
+  - Which asset had the worst drawdown?
+  - Which stocks moved together?
+  - Was higher return linked to higher risk?
+
+Main findings written up:
+
+- NVIDIA grew the most by a very large margin.
+- NVIDIA was also the riskiest asset based on annualized volatility.
+- NVIDIA had the worst maximum drawdown.
+- Microsoft and the S&P 500 had the strongest return correlation.
+- Higher return was generally linked to higher risk in this dataset, although the relationship was not perfect.
+
+Next planned step:
+
+- Review the charts and report together, then begin shaping the EDA findings into a more formal final report section.
