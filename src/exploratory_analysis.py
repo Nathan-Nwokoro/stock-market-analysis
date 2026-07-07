@@ -84,6 +84,9 @@ def build_return_correlation(data: pd.DataFrame) -> pd.DataFrame:
 def save_optional_charts(data: pd.DataFrame, correlation: pd.DataFrame) -> None:
     """Save EDA charts when matplotlib is installed."""
     try:
+        import matplotlib
+
+        matplotlib.use("Agg")
         import matplotlib.pyplot as plt
     except ModuleNotFoundError:
         print("matplotlib is not installed; skipped chart output.")

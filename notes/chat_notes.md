@@ -112,3 +112,13 @@ Main findings written up:
 Next planned step:
 
 - Review the charts and report together, then begin shaping the EDA findings into a more formal final report section.
+
+## 7 July 2026
+
+I have been away for a while on my summer internship but i know my schedeal now so i am trying to get back to this project. 
+
+Work completed today:
+- Created a Python virtual environment (venv) to isolate the project's dependencies from the global Python installation. 
+This helps avoid package conflicts, ensures consistent library versions, and makes the project easier to share and 
+run on different devices using a requirements.txt file.
+- I have start writing the final report in latex on overleaf.
